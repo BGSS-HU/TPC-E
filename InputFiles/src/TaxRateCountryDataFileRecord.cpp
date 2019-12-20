@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atof
-// #include <string> // C++11 for stod
+#include <string>
 
 #include "../inc/Utilities.h"
 

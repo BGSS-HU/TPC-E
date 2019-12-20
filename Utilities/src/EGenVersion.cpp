@@ -116,7 +116,7 @@ void PrintEGenVersion()
 //
 void GetEGenVersionUpdateTimestamp(char* szOutput, size_t iOutputBufferLen)
 {
-    std::strncpy(szOutput, __DATE__" "__TIME__, iOutputBufferLen);
+    std::strncpy(szOutput,__DATE__ " " __TIME__, iOutputBufferLen);
 }
 
 }   // namespace TPC-E

@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi
-// #include <string> // C++11 for stoi
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -52,8 +51,7 @@ SecurityDataFileRecord::SecurityDataFileRecord(const std::deque<std::string>& fi
         throw std::runtime_error("Incorrect field count.");
     }
 
-    s_id = std::atoi(fields[0].c_str());
-    //s_id = std::stoi(fields[0]); // C++11
+    s_id = std::stoi(fields[0]);
 
     DFRStringInit( fields[1], s_st_id, s_st_idCStr, maxS_st_idLen);
 
@@ -63,8 +61,7 @@ SecurityDataFileRecord::SecurityDataFileRecord(const std::deque<std::string>& fi
 
     DFRStringInit( fields[4], s_ex_id, s_ex_idCStr, maxS_ex_idLen);
 
-    s_co_id = std::atoi(fields[5].c_str());
-    //s_co_id = std::stoi(fields[5]); // C++11
+    s_co_id = std::stoi(fields[5]);
 }
 
 TIdent SecurityDataFileRecord::S_ID() const

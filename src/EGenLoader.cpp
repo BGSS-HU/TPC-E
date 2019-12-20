@@ -176,7 +176,7 @@ char  *vp;
      */
     switch ( *sp ) {
       case 'b':
-        sscanf(vp, "%"PRId64, &iStartFromCustomer);
+        sscanf(vp, "%" PRId64, &iStartFromCustomer);
         if (iStartFromCustomer <= 0)
         {   // set back to default
             // either number parsing was unsuccessful
@@ -185,10 +185,10 @@ char  *vp;
         }
         break;
       case 'c':
-        sscanf(vp, "%"PRId64, &iCustomerCount);
+        sscanf(vp, "%" PRId64, &iCustomerCount);
         break;
       case 't':
-        sscanf(vp, "%"PRId64, &iTotalCustomerCount);
+        sscanf(vp, "%" PRId64, &iTotalCustomerCount);
         break;
       case 'f':
         iScaleFactor = (UINT) atoi( vp );

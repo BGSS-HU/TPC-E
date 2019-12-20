@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi, atof
-// #include <string> // C++11 for stoi, stod
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -52,19 +51,15 @@ CommissionRateDataFileRecord::CommissionRateDataFileRecord(const std::deque<std:
         throw std::runtime_error("Incorrect field count.");
     }
 
-    cr_c_tier = std::atoi(fields[0].c_str());
-    //cr_c_tier = std::stoi(fields[0]); // C++11
+    cr_c_tier = std::stoi(fields[0]);
 
     DFRStringInit( fields[1], cr_tt_id, cr_tt_idCStr, maxCr_tt_idLen);
 
     DFRStringInit( fields[2], cr_ex_id, cr_ex_idCStr, maxCr_ex_idLen);
 
-    cr_from_qty = std::atoi(fields[3].c_str());
-    //cr_from_qty = std::stoi(fields[3]); // C++11
-    cr_to_qty = std::atoi(fields[4].c_str());
-    //cr_to_qty = std::stoi(fields[4]); // C++11
-    cr_rate = std::atof(fields[5].c_str());
-    //cr_rate = std::stod(fields[5]); // C++11
+    cr_from_qty = std::stoi(fields[3]);
+    cr_to_qty = std::stoi(fields[4]);
+    cr_rate = std::stod(fields[5]);
 }
 
 int CommissionRateDataFileRecord::CR_C_TIER() const

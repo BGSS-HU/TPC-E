@@ -39,11 +39,9 @@
 
 #include <vector>
 
-//#include <string> // for stoi C++11
-#include <cstdlib> // for atoi
+#include <string>
 
 #include "ITextSplitter.h"
-#include "ShrinkToFit.h"
 
 namespace TPCE
 {
@@ -98,8 +96,7 @@ namespace TPCE
                 }
 
                 // The first field is the bucket ID for this record.
-                //int bucketID = std::stoi(fields[0]); // C++11
-                unsigned int bucketID = std::atoi(fields[0].c_str());
+                int bucketID = std::stoi(fields[0]);
                 fields.pop_front();
 
                 if (buckets.size() == bucketID - 1) 
@@ -119,8 +116,7 @@ namespace TPCE
             // Now that everything has been loaded tighten up our storage.
             // NOTE: shrinking the outer bucket vector has the side effect of 
             // shrinking all the internal bucket vectors.
-            shrink_to_fit< std::vector< std::vector<T> > >(buckets);
-            //buckets.shrink_to_fit(); // C++11
+            buckets.shrink_to_fit();
         }
 
         //

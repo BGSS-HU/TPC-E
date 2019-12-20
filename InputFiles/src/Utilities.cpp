@@ -35,14 +35,13 @@
 */
 
 #include "../inc/Utilities.h"
-#include "../inc/ShrinkToFit.h"
 
 using namespace TPCE;
 
 void TPCE::DFRStringInit(const std::string& src, std::string& dest, char *destCStr, int maxLen)
 {
     dest = src;
-    shrink_to_fit< std::string >(dest);
+    dest.shrink_to_fit();
     size_t len = dest.copy(destCStr, maxLen);
     destCStr[len]='\0';
 }

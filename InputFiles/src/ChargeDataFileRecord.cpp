@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi, atof
-// #include <string> // C++11 for stoi, stod
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -54,11 +53,9 @@ ChargeDataFileRecord::ChargeDataFileRecord(const std::deque<std::string>& fields
 
     DFRStringInit( fields[0], ch_tt_id, ch_tt_idCStr, maxCh_tt_idLen);
 
-    ch_c_tier = std::atoi(fields[1].c_str());
-    //ch_c_tier = std::stoi(fields[1]); // C++11
+    ch_c_tier = std::stoi(fields[1]);
 
-    ch_chrg = std::atof(fields[2].c_str());
-    //ch_chrg = std::stod(fields[2]); // C++11
+    ch_chrg = std::stod(fields[2]);
 }
 
 const std::string& ChargeDataFileRecord::CH_TT_ID() const

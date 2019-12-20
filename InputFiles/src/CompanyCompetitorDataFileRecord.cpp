@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi, atof
-// #include <string> // C++11 for stoi, stod
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -52,10 +51,8 @@ CompanyCompetitorDataFileRecord::CompanyCompetitorDataFileRecord(const std::dequ
         throw std::runtime_error("Incorrect field count.");
     }
 
-    cp_co_id = std::atoi(fields[0].c_str());
-    //cp_co_id = std::stoi(fields[0]); // C++11
-    cp_comp_co_id = std::atoi(fields[1].c_str());
-    //cp_comp_co_id = std::stoi(fields[1]); // C++11
+    cp_co_id = std::stoi(fields[0]);
+    cp_comp_co_id = std::stoi(fields[1]);
 
     DFRStringInit( fields[2], cp_in_id, cp_in_idCStr, maxCp_in_idLen);
 }

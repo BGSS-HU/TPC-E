@@ -191,9 +191,7 @@ DataFileManager::DataFileManager(std::string flatInDir, TIdent configuredCustome
     , securityFile(0)
     , taxRateFile(0)
 {
-    //if( !dir.empty() && dir.back() != '/' && dir.back() != '\\') // C++11
-    char lastChar = dir[dir.size()-1];
-    if( !dir.empty() && lastChar != '/' && lastChar != '\\' )
+    if( !dir.empty() && dir.back() != '/' && dir.back() != '\\')
     {
         // It looks like the last directory seperator was not provided so put one on.
         dir.push_back('/');

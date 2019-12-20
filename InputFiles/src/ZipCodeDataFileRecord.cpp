@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi
-// #include <string> // C++11 for stoi
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -52,8 +51,7 @@ ZipCodeDataFileRecord::ZipCodeDataFileRecord(const std::deque<std::string>& fiel
         throw std::runtime_error("Incorrect field count.");
     }
 
-    divisionTaxKey = std::atoi(fields[0].c_str());
-    //divisionTaxKey = std::stoi(fields[0]); // C++11
+    divisionTaxKey = std::stoi(fields[0]);
 
     DFRStringInit( fields[1], zc_code, zc_codeCStr, maxZc_codeLen);
 

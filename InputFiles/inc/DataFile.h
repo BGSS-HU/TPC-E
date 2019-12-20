@@ -44,7 +44,6 @@
 #include <stdexcept>
 
 #include "ITextSplitter.h"
-#include "ShrinkToFit.h"
 
 namespace TPCE
 {
@@ -96,8 +95,7 @@ namespace TPCE
             }
 
             // Now that everything has been loaded tighten up our storage.
-            shrink_to_fit< Records >(records);
-            //records.shrink_to_fit(); // C++11
+            records.shrink_to_fit();
         }
 
         //

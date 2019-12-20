@@ -42,11 +42,9 @@
 #include <vector>
 #include <stdexcept>
 
-//#include <string> // for stoi C++11
-#include <cstdlib> // for atoi
+#include <string>
 
 #include "ITextSplitter.h"
-#include "ShrinkToFit.h"
 
 namespace TPCE
 {
@@ -96,8 +94,7 @@ namespace TPCE
                 }
 
                 // The first field is the weight for this record.
-                //int weight = std::stoi(fields[0]); // C++11
-                int weight = std::atoi(fields[0].c_str());
+                int weight = std::stoi(fields[0]);
                 fields.pop_front();
 
                 // Set up the weighted indexes for the record.
@@ -114,10 +111,8 @@ namespace TPCE
             }
 
             // Now that everything has been loaded tighten up our storage.
-            shrink_to_fit< Weights >(weightedIndexes);
-            shrink_to_fit< Records >(records);
-            //weightedIndexes.shrink_to_fit(); // C++11
-            //records.shrink_to_fit(); // C++11
+            weightedIndexes.shrink_to_fit();
+            records.shrink_to_fit();
         }
 
         //

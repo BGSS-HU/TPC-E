@@ -39,8 +39,7 @@
 #include <iomanip>
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi, atof
-// #include <string> // C++11 for stoi, stod
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -57,15 +56,12 @@ ExchangeDataFileRecord::ExchangeDataFileRecord(const std::deque<std::string>& fi
 
     DFRStringInit( fields[1], ex_name, ex_nameCStr, maxEx_nameLen);
 
-    ex_open = std::atoi(fields[2].c_str());
-    //ex_open = std::stoi(fields[2]); // C++11
-    ex_close = std::atoi(fields[3].c_str());
-    //ex_close = std::stoi(fields[3]); // C++11
+    ex_open = std::stoi(fields[2]);
+    ex_close = std::stoi(fields[3]);
 
     DFRStringInit( fields[4], ex_desc, ex_descCStr, maxEx_descLen);
 
-    ex_ad_id = std::atoi(fields[5].c_str());
-    //ex_ad_id = std::stoi(fields[5]); // C++11
+    ex_ad_id = std::stoi(fields[5]);
 }
 
 const std::string& ExchangeDataFileRecord::EX_ID() const

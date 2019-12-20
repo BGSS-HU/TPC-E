@@ -108,11 +108,6 @@ typedef unsigned int UINT;
 typedef HANDLE              TThread;
 typedef CRITICAL_SECTION    TMutex;
 
-/////////////////////////////////////////////
-// function remapping                      //
-/////////////////////////////////////////////
-#define snprintf    _snprintf
-
 #endif // WIN32
 
 #if defined  (__unix) || (_AIX)

@@ -38,8 +38,7 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib> // for atoi, atof
-// #include <string> // C++11 for stoi, stod
+#include <string>
 
 #include "../inc/Utilities.h"
 
@@ -52,8 +51,7 @@ CompanyDataFileRecord::CompanyDataFileRecord(const std::deque<std::string>& fiel
         throw std::runtime_error("Incorrect field count.");
     }
 
-    co_id = std::atoi(fields[0].c_str());
-    //co_id = std::stoi(fields[0]); // C++11
+    co_id = std::stoi(fields[0]);
 
     DFRStringInit( fields[1], co_st_id, co_st_idCStr, maxCo_st_idLen);
 
